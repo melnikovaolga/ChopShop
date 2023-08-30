@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChopShop.Api", "ChopShop.Api\ChopShop.Api.csproj", "{64B627C4-FDEE-4278-885F-6AC73BF6D2DC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dal", "Dal", "{2E9412C9-1389-47E4-B15C-900B7084D2C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChopShop.Api.Dal.Postgres", "Dal\ChopShop.Api.Dal.Postgres\ChopShop.Api.Dal.Postgres.csproj", "{809B35E3-0C70-4922-ABA7-32A4C1A2F4E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,12 @@ Global
 		{64B627C4-FDEE-4278-885F-6AC73BF6D2DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64B627C4-FDEE-4278-885F-6AC73BF6D2DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64B627C4-FDEE-4278-885F-6AC73BF6D2DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{809B35E3-0C70-4922-ABA7-32A4C1A2F4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{809B35E3-0C70-4922-ABA7-32A4C1A2F4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{809B35E3-0C70-4922-ABA7-32A4C1A2F4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{809B35E3-0C70-4922-ABA7-32A4C1A2F4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{809B35E3-0C70-4922-ABA7-32A4C1A2F4E1} = {2E9412C9-1389-47E4-B15C-900B7084D2C8}
 	EndGlobalSection
 EndGlobal
