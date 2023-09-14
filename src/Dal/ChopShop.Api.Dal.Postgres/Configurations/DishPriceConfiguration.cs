@@ -22,7 +22,6 @@ public class DishPriceConfiguration: IEntityTypeConfiguration<DishPrice>
             .IsRequired();
         
         builder.HasOne(x => x.Dish)
-            .WithMany(x => x.Prices)
-            .OnDelete(DeleteBehavior.Restrict);
+            .WithMany(x => x.Prices);
     }
 }

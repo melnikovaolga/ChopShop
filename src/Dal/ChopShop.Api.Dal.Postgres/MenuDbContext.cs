@@ -1,3 +1,4 @@
+using ChopShop.Api.Dal.Postgres.Configurations;
 using ChopShop.Api.Dal.Postgres.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,4 +11,11 @@ public class MenuDbContext: DbContext
 
     public MenuDbContext(DbContextOptions<MenuDbContext> options) : base(options)
     {}
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.ApplyConfiguration(new DishConfiguration());
+        builder.ApplyConfiguration(new DishNameConfiguration());
+        builder.ApplyConfiguration(new DishPriceConfiguration());
+    }
 }

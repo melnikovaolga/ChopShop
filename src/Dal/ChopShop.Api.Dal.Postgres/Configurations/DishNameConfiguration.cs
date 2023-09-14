@@ -14,15 +14,15 @@ public class DishNameConfiguration: IEntityTypeConfiguration<DishName>
 
         builder.Property(x => x.Id)
             .ValueGeneratedOnAdd();
-        
-        builder.HasOne(x => x.Dish)
-            .WithMany(x => x.Names)
-            .OnDelete(DeleteBehavior.Restrict);
 
         builder.Property(x => x.Language)
             .IsRequired();
         
         builder.Property(x => x.Value)
-            .IsRequired();
+            .IsRequired()
+            .HasMaxLength(60);
+        
+        builder.HasOne(x => x.Dish)
+            .WithMany(x => x.Names);
     }
 }
