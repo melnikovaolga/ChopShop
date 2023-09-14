@@ -1,5 +1,5 @@
 using ChopShop.Api.Configuration;
-using ChopShop.Api.Dal.Postgres.Context;
+using ChopShop.Api.Dal.Postgres;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChopShop.Api;
@@ -20,10 +20,10 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         
-        services.AddPostgresContext(Configuration);
+        services.AddMenuDbContext(Configuration);
     }
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, PostgresContext postgresContext)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MenuDbContext menuDbContext)
     {
         // if (postgresContext.Database.GetPendingMigrations().Any())
         //     postgresContext.Database.Migrate();

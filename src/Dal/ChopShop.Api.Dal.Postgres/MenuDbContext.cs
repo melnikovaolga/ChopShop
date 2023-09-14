@@ -1,13 +1,13 @@
 using ChopShop.Api.Dal.Postgres.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ChopShop.Api.Dal.Postgres.Context;
+namespace ChopShop.Api.Dal.Postgres;
 
-public class PostgresContext: DbContext
+public class MenuDbContext: DbContext
 {
     public DbSet<Dish> Dish { get; } = null!;
     public DbSet<DishName> DishName { get; } = null!;
 
-    public PostgresContext(DbContextOptions<PostgresContext> options) : base(options)
+    public MenuDbContext(DbContextOptions<MenuDbContext> options) : base(options)
     {}
 }
