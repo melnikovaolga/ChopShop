@@ -4,8 +4,8 @@ namespace ChopShop.Api.Dal.Postgres.Repository;
 
 public abstract class RepositoryBase<TEntity>: IRepositoryBase<TEntity> where TEntity : class
 {
-    protected readonly DbSet<TEntity> Table;
-    protected RepositoryBase(DbSet<TEntity> table) => Table = table;
+    private readonly DbSet<TEntity> _dbSet;
+    protected RepositoryBase(DbSet<TEntity> dbSet) => _dbSet = dbSet;
 
-    public IAsyncEnumerable<TEntity> GetAllAsync() => Table.AsAsyncEnumerable();
+    public IAsyncEnumerable<TEntity> GetAllAsync() => _dbSet.AsAsyncEnumerable();
 }

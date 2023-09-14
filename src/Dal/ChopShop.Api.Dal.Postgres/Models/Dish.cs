@@ -1,21 +1,15 @@
-﻿using ChopShop.Api.Dal.Postgres.Models.Enum;
+﻿using ChopShop.Api.Dal.Postgres.Models.Enums;
 
 namespace ChopShop.Api.Dal.Postgres.Models;
 
 public class Dish
 {
-    public Guid Id { get; }
-    
-    public IReadOnlyCollection<DishName> Names { get; }
+    public Guid Id { get; init; }
 
-    public decimal Price { get; }
-    
-    public CurrencyType Currency { get; }
+    public IEnumerable<DishName> Names { get; init; } = null!;
 
-    public Dish(IReadOnlyCollection<DishName> names, decimal price, CurrencyType currency)
-    {
-        Names = names;
-        Price = price;
-        Currency = currency;
-    }
+    public IEnumerable<DishPrice> Prices { get; init; } = null!;
+    
+    public AvailabilityType Availability { get; set; }
+
 }
