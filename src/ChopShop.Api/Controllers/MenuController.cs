@@ -1,8 +1,10 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChopShop.Api.Controllers;
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class MenuController : ControllerBase
 {
@@ -13,9 +15,10 @@ public class MenuController : ControllerBase
         new ("Teriyaki chicken", 5)
     };
 
+
     [HttpGet]
-    public IEnumerable<Dish> Get()
+    public IActionResult Get()
     {
-        return Dishes;
+        return Content(string.Join(",", Dishes.Select(dish => dish.Name)));
     }
 }

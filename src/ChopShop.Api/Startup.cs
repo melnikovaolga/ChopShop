@@ -1,6 +1,7 @@
 using ChopShop.Api.Configuration;
 using ChopShop.Api.Dal.MenuContext;
 using ChopShop.Api.Dal.UserContext;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChopShop.Api;
@@ -18,10 +19,17 @@ public class Startup
     {
         services.AddMenuDbContext(Configuration);
         services.AddUserDbContext(Configuration);
-        services.AddControllers();
         
-        services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+        services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = new PathString("/Account/Login");
+            });
+        
+        services.AddControllersWithViews();
+        
+        //services.AddEndpointsApiExplorer();
+        //services.AddSwaggerGen();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, MenuContext menuContext, UserContext userContext)
@@ -32,19 +40,25 @@ public class Startup
         if (userContext.Database.GetPendingMigrations().Any())
             userContext.Database.Migrate();
         
+        app.UseDeveloperExceptionPage();
+        app.UseStaticFiles();
+
         app.UseRouting();
-        app.UseHttpsRedirection();
-        app.UseAuthorization();
-        app.UseCors(cfg => cfg.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+        //app.UseHttpsRedirection();
         
+        app.UseAuthentication();
+        app.UseAuthorization(); 
+        
+        //app.UseCors(cfg => cfg.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
-                "default",
-                "{controller}");
+                name: "default",
+                pattern: "{controller=Menu}/{action=Get}/{id?}");
         });
         
-        app.UseSwagger();
-        app.UseSwaggerUI();
+        //app.UseSwagger();
+        //app.UseSwaggerUI();
     }
 }
