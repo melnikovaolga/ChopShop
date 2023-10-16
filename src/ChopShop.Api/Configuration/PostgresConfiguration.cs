@@ -1,4 +1,5 @@
 using ChopShop.Api.Dal.MenuContext;
+using ChopShop.Api.Dal.UserContext;
 using Microsoft.EntityFrameworkCore;
 
 namespace ChopShop.Api.Configuration;
@@ -13,7 +14,7 @@ public static class PostgresConfiguration
         });
     
     public static void AddUserDbContext(this IServiceCollection services, IConfiguration configuration) =>
-        services.AddDbContext<MenuContext>(options =>
+        services.AddDbContext<UserContext>(options =>
         {
             options.UseNpgsql(configuration.GetConnectionString("User"),
                 option => { option.MigrationsAssembly("ChopShop.Api.Dal.UserContext"); });
