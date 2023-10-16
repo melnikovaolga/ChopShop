@@ -1,8 +1,8 @@
-using ChopShop.Api.Dal.Postgres.Models;
+using ChopShop.Api.Dal.MenuContext.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ChopShop.Api.Dal.Postgres.Configurations;
+namespace ChopShop.Api.Dal.MenuContext.Configurations;
 
 public class DishNameConfiguration: IEntityTypeConfiguration<DishName>
 {

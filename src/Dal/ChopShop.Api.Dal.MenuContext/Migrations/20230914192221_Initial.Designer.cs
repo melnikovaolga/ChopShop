@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ChopShop.Api.Dal.Postgres.Migrations
 {
-    [DbContext(typeof(MenuDbContext))]
+    [DbContext(typeof(MenuContext.MenuContext))]
     [Migration("20230914192221_Initial")]
     partial class Initial
     {
@@ -24,7 +24,7 @@ namespace ChopShop.Api.Dal.Postgres.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("ChopShop.Api.Dal.Postgres.Models.Dish", b =>
+            modelBuilder.Entity("ChopShop.Api.Dal.MenuContext.Models.Dish", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -38,7 +38,7 @@ namespace ChopShop.Api.Dal.Postgres.Migrations
                     b.ToTable("Dish", (string)null);
                 });
 
-            modelBuilder.Entity("ChopShop.Api.Dal.Postgres.Models.DishName", b =>
+            modelBuilder.Entity("ChopShop.Api.Dal.MenuContext.Models.DishName", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,7 +62,7 @@ namespace ChopShop.Api.Dal.Postgres.Migrations
                     b.ToTable("DishName", (string)null);
                 });
 
-            modelBuilder.Entity("ChopShop.Api.Dal.Postgres.Models.DishPrice", b =>
+            modelBuilder.Entity("ChopShop.Api.Dal.MenuContext.Models.DishPrice", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,9 +84,9 @@ namespace ChopShop.Api.Dal.Postgres.Migrations
                     b.ToTable("DishPrice", (string)null);
                 });
 
-            modelBuilder.Entity("ChopShop.Api.Dal.Postgres.Models.DishName", b =>
+            modelBuilder.Entity("ChopShop.Api.Dal.MenuContext.Models.DishName", b =>
                 {
-                    b.HasOne("ChopShop.Api.Dal.Postgres.Models.Dish", "Dish")
+                    b.HasOne("ChopShop.Api.Dal.MenuContext.Models.Dish", "Dish")
                         .WithMany("Names")
                         .HasForeignKey("DishId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -95,9 +95,9 @@ namespace ChopShop.Api.Dal.Postgres.Migrations
                     b.Navigation("Dish");
                 });
 
-            modelBuilder.Entity("ChopShop.Api.Dal.Postgres.Models.DishPrice", b =>
+            modelBuilder.Entity("ChopShop.Api.Dal.MenuContext.Models.DishPrice", b =>
                 {
-                    b.HasOne("ChopShop.Api.Dal.Postgres.Models.Dish", "Dish")
+                    b.HasOne("ChopShop.Api.Dal.MenuContext.Models.Dish", "Dish")
                         .WithMany("Prices")
                         .HasForeignKey("DishId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -106,7 +106,7 @@ namespace ChopShop.Api.Dal.Postgres.Migrations
                     b.Navigation("Dish");
                 });
 
-            modelBuilder.Entity("ChopShop.Api.Dal.Postgres.Models.Dish", b =>
+            modelBuilder.Entity("ChopShop.Api.Dal.MenuContext.Models.Dish", b =>
                 {
                     b.Navigation("Names");
 

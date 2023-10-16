@@ -1,4 +1,4 @@
-namespace ChopShop.Api.Dal.Postgres.Models.Enums;
+namespace ChopShop.Api.Dal.MenuContext.Models.Enums;
 
 public enum AvailabilityType
 {

@@ -1,6 +1,6 @@
-using ChopShop.Api.Dal.Postgres.Models.Enums;
+using ChopShop.Api.Dal.MenuContext.Models.Enums;
 
-namespace ChopShop.Api.Dal.Postgres.Models;
+namespace ChopShop.Api.Dal.MenuContext.Models;
 
 public class DishName
 {

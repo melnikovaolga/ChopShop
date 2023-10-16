@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace ChopShop.Api.Dal.Postgres.Repository;
+namespace ChopShop.Api.Dal.MenuContext.Repository;
 
 public abstract class RepositoryBase<TEntity>: IRepositoryBase<TEntity> where TEntity : class
 {

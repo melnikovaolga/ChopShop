@@ -1,15 +1,15 @@
-using ChopShop.Api.Dal.Postgres.Configurations;
-using ChopShop.Api.Dal.Postgres.Models;
+using ChopShop.Api.Dal.MenuContext.Configurations;
+using ChopShop.Api.Dal.MenuContext.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ChopShop.Api.Dal.Postgres;
+namespace ChopShop.Api.Dal.MenuContext;
 
-public class MenuDbContext: DbContext
+public class MenuContext: DbContext
 {
     public DbSet<Dish> Dish { get; } = null!;
     public DbSet<DishName> DishName { get; } = null!;
 
-    public MenuDbContext(DbContextOptions<MenuDbContext> options) : base(options)
+    public MenuContext(DbContextOptions<MenuContext> options) : base(options)
     {}
 
     protected override void OnModelCreating(ModelBuilder builder)

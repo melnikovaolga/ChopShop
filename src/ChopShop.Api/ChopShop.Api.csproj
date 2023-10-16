@@ -22,7 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Dal\ChopShop.Api.Dal.Postgres\ChopShop.Api.Dal.Postgres.csproj" />
+      <ProjectReference Include="..\Dal\ChopShop.Api.Dal.MenuContext\ChopShop.Api.Dal.MenuContext.csproj" />
+      <ProjectReference Include="..\Dal\ChopShop.Api.Dal.UserContext\ChopShop.Api.Dal.UserContext.csproj" />
     </ItemGroup>
 
 </Project>

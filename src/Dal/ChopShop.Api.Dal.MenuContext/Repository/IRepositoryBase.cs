@@ -1,4 +1,4 @@
-namespace ChopShop.Api.Dal.Postgres.Repository;
+namespace ChopShop.Api.Dal.MenuContext.Repository;
 
 public interface IRepositoryBase<out TEntity>
 {
